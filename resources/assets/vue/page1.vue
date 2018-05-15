@@ -1,7 +1,7 @@
 <template>
   <div id="page1">
     <div class="container app-content">
-      <h1>What ??</h1>
+      <h1>Haaaa ??</h1>
       <bye-bye/>
     </div>
   </div>

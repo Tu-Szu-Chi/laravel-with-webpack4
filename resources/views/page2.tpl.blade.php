@@ -43,4 +43,7 @@
             </div>
         </div>
     </body>
+    <script src="http://localhost:3000/vendor.js"></script>
+    <script src="http://localhost:3000/commons.js"></script>
+    <script src="http://localhost:3000/page1.js"></script>
 </html>

@@ -3,7 +3,7 @@
   "scripts": {
     "build": "npx webpack --config webpack.development.config.js",
     "build:watch": "npx webpack --config webpack.development.config.js --watch",
-    "run:dev": "npx webpack-dev-server --config webpack.development.config.js --color --progress --hot"
+    "run:dev": "npx webpack-dev-server --config webpack.development.config.js --color --progress --env.hot"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

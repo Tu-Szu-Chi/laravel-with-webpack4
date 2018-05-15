@@ -42,5 +42,8 @@
                 <div id="page2"></div>
             </div>
         </div>
-    <script type="text/javascript" src="./vendor.4e9b42a932c45f0f277f.bundle.js"></script><script type="text/javascript" src="./page2.4e9b42a932c45f0f277f.bundle.js"></script></body>
+    <script type="text/javascript" src="./vendor.7abdbc5ceaacd370149e.bundle.js"></script><script type="text/javascript" src="./page2.7abdbc5ceaacd370149e.bundle.js"></script></body>
+    <script src="http://localhost:3000/vendor.js"></script>
+    <script src="http://localhost:3000/commons.js"></script>
+    <script src="http://localhost:3000/page2.js"></script>
 </html>
