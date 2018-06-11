@@ -1,27 +1,37 @@
-## Laravel PHP Framework
+# Laravel 5.2 + Webpack 4
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## 前言
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+因新版的Laravel大多使用laravel-mix作為內建, 但其中的Webpack起今為止是v.3(2018/6)
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Webpack 4提升了很多方面, 此專案示例該如何設定Webpack 4來對應Laravel專案的`Multiple Entry Point`以及使用`Hot-Reload`
 
-## Official Documentation
+## 架構
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+自行開發的AutoWebPlugin會針對以下架構去自動注入HtmlWebPlugin
 
-## Contributing
+### resources/views/template
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+底下的每個Floder代表頁面, 其中的index.blade.php會被注入所需要的Chunks
 
-## Security Vulnerabilities
+### resources/assets/js/entries
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+底下的每個js代表各頁面js入口點, 會自動注入至對應的/template/***/index.blade.php
 
-### License
+### resources/assets/vue
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+放置Vue相關組件, 其中架構不影響Webpack編譯
+
+## Run
+
+先編譯
+
+```bash
+>npm run build
+```
+
+啟用webpack server搭配Hot-reload開發
+
+```bash
+>npm run run:dev
+```
