@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Page1</title>
+        <title>Page 2</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -38,12 +38,9 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Page 1</div>
-                <div id="page1"></div>
+                <div class="title">Page 2</div>
+                <div id="page2"></div>
             </div>
         </div>
     </body>
-    <script src="http://localhost:3000/vendor.js"></script>
-    <script src="http://localhost:3000/commons.js"></script>
-    <script src="http://localhost:3000/page1.js"></script>
 </html>

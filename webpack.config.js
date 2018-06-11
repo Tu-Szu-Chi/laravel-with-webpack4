@@ -2,20 +2,19 @@ const path = require('path')
 
 const webpack = require('webpack')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const { VueLoaderPlugin } = require('vue-loader')
 
-const vueLoaderConfig = require('./vue-loader.conf.js')
+const AutoWebPlugin = require('./webpack/auto-web-plugin')
 
-const extractSass = new ExtractTextPlugin('stylesheets/[name]-sass.css')
+const vueLoaderConfig = require('./webpack/vue-loader.conf.js')
 
 module.exports = env => {
   return {
-    mode: 'development', // production
-  // 輸出訊息
+    mode: env.mode ? env.mode : 'development', // production | development
     stats: {
       cached: false,
       cachedAssets: false,
@@ -36,18 +35,16 @@ module.exports = env => {
     },
     resolve: {
       alias: {
-        '%': path.resolve(__dirname, 'resources/assets/sass')
+        '%': path.resolve(__dirname, 'resources/assets/sass'),
+        '@': path.resolve(__dirname, 'resources/assets/vue'),
+        '#': path.resolve(__dirname, 'resources/assets/js')
       },
       extensions: ['.js', '.vue', '.json']
     },
-    entry: {
-      page1: './resources/assets/js/page1.js',
-      page2: './resources/assets/js/page2.js'
-    },
     output: {
       filename: env.hot ? '[name].js' : '[name].[hash].bundle.js',
-      path: path.resolve(__dirname, 'public'),
-      publicPath: env.hot ? 'http://localhost:3000/' : './'
+      path: path.resolve(__dirname, 'public/dist'),
+      publicPath: env.hot ? 'http://localhost:3000/dist/' : '/dist/'
     },
     module: {
       rules: [
@@ -66,11 +63,11 @@ module.exports = env => {
         },
         {
           test: /\.(sass|scss)$/,
-          use: extractSass.extract({
-            fallback: 'style-loader',
-            use: ['css-loader',
-              `sass-loader`]
-          })
+          use: ['style-loader','css-loader', `sass-loader`]
+        },
+        {
+          test: /\.(jpg|jpeg|gif|png|woff|woff2|eot|ttf|svg)$/, 
+          loader: 'url-loader?limit=100000'
         }
       ]
     },
@@ -96,17 +93,15 @@ module.exports = env => {
     plugins: [
       new VueLoaderPlugin(),
       new webpack.HotModuleReplacementPlugin(),
-      new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'resources/views/page1.tpl.blade.php'),
-        filename: path.resolve(__dirname, 'resources/views/page1.blade.php'),
-        chunks: ['page1', 'commons', 'vendor']
+      new AutoWebPlugin('./resources/views/template', {
+        outputPath: './resources/views/',
+        entryPath: './resources/assets/js/entries',
+        defaultChunks: ['vendor', 'commons']
       }),
-      new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'resources/views/page2.tpl.blade.php'),
-        filename: path.resolve(__dirname, 'resources/views/page2.blade.php'),
-        chunks: ['page2', 'commons', 'vendor']
-      }),
-      extractSass
+      new HtmlWebpackHarddiskPlugin(),
+      new CleanWebpackPlugin(['dist/'], {
+        root: path.resolve(__dirname, 'public')
+      })
     ]
   }
 }

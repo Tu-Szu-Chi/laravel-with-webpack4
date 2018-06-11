@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import Page1 from '../vue/page1.vue'
+import Page1 from '@/page1.vue'
 
 new Vue({
   el: '#page1',

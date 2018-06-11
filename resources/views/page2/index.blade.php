@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Page1</title>
+        <title>Page 2</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -34,13 +34,13 @@
                 font-size: 96px;
             }
         </style>
-    <link href="./stylesheets/page1-sass.css" rel="stylesheet"></head>
+    </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Page 1</div>
-                <div id="page1"></div>
+                <div class="title">Page 2</div>
+                <div id="page2"></div>
             </div>
         </div>
-    <script type="text/javascript" src="./vendor.7abdbc5ceaacd370149e.bundle.js"></script><script type="text/javascript" src="./page1.7abdbc5ceaacd370149e.bundle.js"></script></body>
+    <script type="text/javascript" src="/dist/vendor.c255320db7bada436c99.bundle.js"></script><script type="text/javascript" src="/dist/page2.c255320db7bada436c99.bundle.js"></script></body>
 </html>

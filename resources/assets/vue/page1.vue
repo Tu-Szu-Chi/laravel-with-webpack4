@@ -1,7 +1,7 @@
 <template>
   <div id="page1">
     <div class="container app-content">
-      <h1>Haaaa ??</h1>
+      <h1>Haa???aa ??</h1>
       <bye-bye/>
     </div>
   </div>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ByeBye from './byebye.vue'
+import ByeBye from '@/component/byebye.vue'
 
 require('%/app.scss')
 

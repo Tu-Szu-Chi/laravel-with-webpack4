@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Hello from './hello.vue'
+import Hello from '@/component/hello.vue'
 
 export default {
   name: 'page2',

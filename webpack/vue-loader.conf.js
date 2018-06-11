@@ -1,4 +1,4 @@
-var utils = require('./utils')
+var utils = require('./vue-loader.utils')
 var isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
