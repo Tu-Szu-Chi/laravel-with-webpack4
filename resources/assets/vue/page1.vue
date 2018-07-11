@@ -1,7 +1,7 @@
 <template>
   <div id="page1">
     <div class="container app-content">
-      <h1>Haa???aa ??</h1>
+      <h1>Page1</h1>
       <bye-bye/>
     </div>
   </div>
@@ -14,7 +14,7 @@ import ByeBye from '@/component/byebye.vue'
 require('%/app.scss')
 
 export default {
-  name: 'page2',
+  name: 'page1',
   components: { ByeBye },
   data () {
     return {

@@ -1,6 +1,7 @@
 /vendor
 /node_modules
 /public/dist
+/resources/assets/views/bundle
 Homestead.yaml
 Homestead.json
 .env

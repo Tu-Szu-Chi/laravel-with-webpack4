@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "build": "node ./node_modules/webpack/bin/webpack --config webpack.config.js --env",
-    "build:watch": "node ./node_modules/webpack/bin/webpack --config webpack.config.js --watch",
-    "run:dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.config.js --color --progress --env.hot",
-    "prod": "node ./node_modules/webpack/bin/webpack --config webpack.config.js --env.mode production"
+    "watch": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --watch",
+    "hot": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.config.js --color --progress --env.hot",
+    "build:dev": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --env.mode development",
+    "build:prod": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --env.mode production"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

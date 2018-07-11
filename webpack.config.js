@@ -10,8 +10,6 @@ const { VueLoaderPlugin } = require('vue-loader')
 
 const AutoWebPlugin = require('./webpack/auto-web-plugin')
 
-const vueLoaderConfig = require('./webpack/vue-loader.conf.js')
-
 module.exports = env => {
   return {
     mode: env.mode ? env.mode : 'development', // production | development
@@ -93,8 +91,9 @@ module.exports = env => {
     plugins: [
       new VueLoaderPlugin(),
       new webpack.HotModuleReplacementPlugin(),
-      new AutoWebPlugin('./resources/views/template', {
-        outputPath: './resources/views/',
+      new AutoWebPlugin('./resources/assets/js/entries', {
+        ignoreEntries: ['.DS_Store.js'],
+        outputPath: './resources/views/bundle',
         entryPath: './resources/assets/js/entries',
         defaultChunks: ['vendor', 'commons']
       }),

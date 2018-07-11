@@ -12,5 +12,6 @@
                 <div id="page1"></div>
             </div>
         </div>
+        @include('bundle.page1')
     </body>
 </html>

@@ -42,5 +42,6 @@
                 <div id="page2"></div>
             </div>
         </div>
-    <script type="text/javascript" src="/dist/vendor.c255320db7bada436c99.bundle.js"></script><script type="text/javascript" src="/dist/page2.c255320db7bada436c99.bundle.js"></script></body>
+        @include('bundle.page2')
+    </body>
 </html>
