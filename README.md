@@ -33,7 +33,7 @@ ex. page1.blade.php記得在body底部加入`@include('bundle.page1')`
 
 再開另一個terminal tab去執行Laravel server即可, `php artisan serve --port=8080`
 
-##附註
+## 附註
 
 預設的php server port = 8080, webpack-dev-server port = 3000
-部份code可在自行抽出來(webpack.dev.js | webpack.pro.js)
+部份code可在自行抽出來`(webpack.dev.js | webpack.pro.js)`
