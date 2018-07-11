@@ -1,1 +1,1 @@
-<!-- Keep this file empty --><script type="text/javascript" src="/dist/vendor.c0d2830ed14da50c02c4.bundle.js"></script><script type="text/javascript" src="/dist/page1.c0d2830ed14da50c02c4.bundle.js"></script>
+<!-- Keep this file empty --><script type="text/javascript" src="/dist/vendor.333916020e925aa03ae3.bundle.js"></script><script type="text/javascript" src="/dist/page1.333916020e925aa03ae3.bundle.js"></script>

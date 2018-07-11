@@ -91,7 +91,7 @@ module.exports = env => {
     plugins: [
       new VueLoaderPlugin(),
       new webpack.HotModuleReplacementPlugin(),
-      new AutoWebPlugin('./resources/assets/js/entries', {
+      new AutoWebPlugin({
         ignoreEntries: ['.DS_Store.js'],
         outputPath: './resources/views/bundle',
         entryPath: './resources/assets/js/entries',

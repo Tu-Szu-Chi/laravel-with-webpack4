@@ -1,37 +1,34 @@
 # Laravel 5.2 + Webpack 4
 
+> Laravel搭配純粹的Webpack 4, 並具備Hot Reload
+
 ## 前言
 
-因新版的Laravel大多使用laravel-mix作為內建, 但其中的Webpack起今為止是v.3(2018/6)
+因新版的Laravel(5.4 up)使用laravel-mix作為內建, 但其中的Webpack起今為止是v.3(2018/6)
 
-Webpack 4提升了很多方面, 此專案示例該如何設定Webpack 4來對應Laravel專案的`Multiple Entry Point`以及使用`Hot-Reload`
+Webpack 4提升了很多方面, 此專案示例該如何設定Webpack 4來對應Laravel專案的`Multiple Entry Point`以及搭配`Hot-Reload`
 
-## 架構
+## 參數
 
-自行開發的AutoWebPlugin會針對以下架構去自動注入HtmlWebPlugin
+| Parameter | Explanation | Example |
+| --------- | ----------- | ------- |
+| ignoreEntries `<Array>[string]` | 要排除的進入點 | `['.DS_Store.js']` |
+| outputPath `[string]` | 輸出目錄 | `resources/views/bundle` |
+| entryPath `[string] |` 進入點目錄 | `resource/assets/js/entries` |
+| defaultChunks `<Array>[string]` | 預設加入的Chunks | `[vendor, commons]` |
 
-### resources/views/template
+## 原理
 
-底下的每個Floder代表頁面, 其中的index.blade.php會被注入所需要的Chunks
+此技術原理主要是讓程式自動去跑HtmlWebPlugin
+自行客制的AutoWebPlugin會針對以下架構去自動搭配HtmlWebPlugin
 
-### resources/assets/js/entries
-
-底下的每個js代表各頁面js入口點, 會自動注入至對應的/template/***/index.blade.php
-
-### resources/assets/vue
-
-放置Vue相關組件, 其中架構不影響Webpack編譯
-
-## Run
-
-先編譯
+## 使用方式
 
 ```bash
->npm run build
+$yarn hot | yarn build:dev
 ```
 
-啟用webpack server搭配Hot-reload開發
+將對應的*.blade.php引入bundle檔案
+ex. page1.blade.php記得在body底部加入`@include('bundle.page1')`
 
-```bash
->npm run run:dev
-```
+再開令一個terminal tab去執行Laravel server即可, `php artisan serve --port=8080`

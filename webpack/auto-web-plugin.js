@@ -54,22 +54,19 @@ function getEntryNames(dir, ignoreEntries = []) {
 
 class AutoWebPlugin {
 
-	constructor(entryDir, options) {
-		options = Object.assign({}, options);
-    this.options = options;
-    this.entryMap = {}
-    this.webpackEntry = {}
-    const { ignoreEntries, outputPath, entryPath, defaultChunks } = options;
-    const entryNames = getEntryNames(entryDir, ignoreEntries);
-    entryNames.forEach(entryName => {
-        this.entryMap[entryName] = {
-            template: path.resolve(__dirname, '../resources/views/bundle.blade.php'),
-            filename: path.resolve(outputPath, entryName + '.blade.php'),
-            chunks: [entryName, ...defaultChunks]
-        };
-
-        this.webpackEntry[entryName] = [path.resolve(entryPath, `${entryName}.js`)]
-    });
+	constructor(options) {
+        const { ignoreEntries, outputPath, entryPath, defaultChunks } = options;
+        this.entryMap = {}
+        this.webpackEntry = {}
+        const entryNames = getEntryNames(entryPath, ignoreEntries);
+        entryNames.forEach(entryName => {
+            this.entryMap[entryName] = {
+                template: path.resolve(__dirname, 'bundle.blade.php'),
+                filename: path.resolve(outputPath, entryName + '.blade.php'),
+                chunks: [entryName, ...defaultChunks]
+            };
+            this.webpackEntry[entryName] = [path.resolve(entryPath, `${entryName}.js`)]
+        });
   }
 
   // call by webpack
